@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pirate Republic — We Sail. We Expose. We Rebuild.</title>
+<meta name="description" content="A rebel ocean movement exposing agroindustrial destruction and building regenerative systems through BioBalance, La Comarca, and Wild & True.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     PIRATE REPUBLIC — CINEMATIC WEB DESIGN
+     Aesthetic: Nautical Brutalism × Regenerative Manifesto
+     Dark ocean depths + raw earth tones + blood-orange defiance
+  ============================================================ */
+
+  :root {
+    --ocean-black: #080c10;
+    --deep-navy: #0d1b2a;
+    --sea-slate: #1a2d3d;
+    --horizon: #213f52;
+    --salt-white: #e8e4d9;
+    --bone: #c9c3b3;
+    --ember: #d4541a;
+    --flag-red: #b82c1b;
+    --brine-gold: #c8a84b;
+    --kelp-green: #2d5a27;
+    --moss: #4a7c3f;
+    --sand: #a8956b;
+
+    --font-flag: 'Bebas Neue', sans-serif;
+    --font-body: 'Crimson Pro', serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ocean-black);
+    color: var(--salt-white);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.35;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--ocean-black); }
+  ::-webkit-scrollbar-thumb { background: var(--ember); }
+
+  /* ======================== NAV ======================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(180deg, rgba(8,12,16,0.95) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(200,168,75,0.15);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: var(--font-flag);
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--salt-white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--ember); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ember); }
+
+  .lang-toggle {
+    display: flex;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1px solid rgba(200,168,75,0.4);
+    color: var(--bone);
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--ember);
+    border-color: var(--ember);
+    color: white;
+  }
+
+  /* ======================== HERO ======================== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8rem 3rem 4rem;
+  }
+
+  /* Animated ocean horizon */
+  .hero-ocean {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 60% at 50% 120%, rgba(13,27,42,1) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 40% at 20% 80%, rgba(45,90,39,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212,84,26,0.08) 0%, transparent 60%),
+      linear-gradient(180deg, #080c10 0%, #0d1b2a 40%, #1a2d3d 70%, #0d1b2a 100%);
+    z-index: 0;
+  }
+
+  /* Horizon line */
+  .hero-ocean::after {
+    content: '';
+    position: absolute;
+    bottom: 35%;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,168,75,0.4), rgba(212,84,26,0.6), rgba(200,168,75,0.4), transparent);
+    animation: horizonPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes horizonPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+
+  /* Wave lines */
+  .wave-lines {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 40%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .wave-lines svg {
+    width: 200%;
+    height: 100%;
+    animation: waveDrift 12s linear infinite;
+  }
+
+  @keyframes waveDrift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  .hero-eyebrow::before {
+    content: '⚓ ';
+  }
+
+  .hero-headline {
+    font-family: var(--font-flag);
+    font-size: clamp(4.5rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--salt-white);
+    margin-bottom: 0.3rem;
+    animation: fadeInUp 0.9s 0.1s ease both;
+  }
+
+  .hero-headline .accent { color: var(--ember); }
+  .hero-headline .gold { color: var(--brine-gold); }
+
+  .hero-sub {
+    font-family: var(--font-flag);
+    font-size: clamp(2rem, 5vw, 4rem);
+    letter-spacing: 0.05em;
+    color: var(--bone);
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s 0.2s ease both;
+  }
+
+  .hero-manifesto {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--bone);
+    max-width: 620px;
+    margin-bottom: 3rem;
+    font-style: italic;
+    animation: fadeInUp 1s 0.35s ease both;
+    border-left: 3px solid var(--ember);
+    padding-left: 1.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s 0.5s ease both;
+  }
+
+  .btn-primary {
+    font-family: var(--font-flag);
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    padding: 1rem 2.5rem;
+    background: var(--ember);
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .btn-primary:hover {
+    background: var(--flag-red);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212,84,26,0.4);
+  }
+
+  .btn-secondary {
+    font-family: var(--font-flag);
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--brine-gold);
+    border: 1px solid var(--brine-gold);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--brine-gold);
+    color: var(--ocean-black);
+    transform: translateY(-2px);
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--bone);
+    opacity: 0.5;
+    z-index: 2;
+    animation: fadeInUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 60px;
+    height: 1px;
+    background: var(--bone);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(0.4); transform-origin: left; }
+  }
+
+  /* ======================== TICKER ======================== */
+  .ticker-bar {
+    background: var(--ember);
+    padding: 0.7rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--flag-red);
+    border-bottom: 1px solid var(--flag-red);
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: tickerScroll 30s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: white;
+    gap: 4rem;
+  }
+
+  @keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ticker-sep { color: rgba(255,255,255,0.4); }
+
+  /* ======================== SECTIONS ======================== */
+  section {
+    padding: 7rem 3rem;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--ember);
+  }
+
+  .section-title {
+    font-family: var(--font-flag);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    margin-bottom: 2rem;
+  }
+
+  /* ======================== MANIFESTO SECTION ======================== */
+  .manifesto-section {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto-section::before {
+    content: 'MANIFEST';
+    position: absolute;
+    top: -0.1em;
+    right: -0.05em;
+    font-family: var(--font-flag);
+    font-size: 20vw;
+    color: rgba(255,255,255,0.02);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .manifesto-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .manifesto-text .section-title { color: var(--salt-white); }
+
+  .manifesto-body {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--bone);
+  }
+
+  .manifesto-body p { margin-bottom: 1.5rem; }
+
+  .manifesto-body strong {
+    color: var(--ember);
+    font-style: normal;
+  }
+
+  .manifesto-accusations {
+    position: relative;
+    z-index: 1;
+  }
+
+  .accusation-card {
+    border-left: 3px solid var(--flag-red);
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    background: rgba(184,44,27,0.06);
+    transition: all 0.3s;
+  }
+
+  .accusation-card:hover {
+    border-color: var(--ember);
+    background: rgba(212,84,26,0.1);
+    transform: translateX(6px);
+  }
+
+  .accusation-card h3 {
+    font-family: var(--font-flag);
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    color: var(--salt-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .accusation-card p {
+    font-size: 0.95rem;
+    color: var(--bone);
+    line-height: 1.7;
+  }
+
+  /* ======================== SOLUTIONS ======================== */
+  .solutions-section {
+    background: var(--ocean-black);
+  }
+
+  .solutions-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+  }
+
+  .solutions-header .section-title { color: var(--salt-white); }
+  .solutions-header .section-label { justify-content: center; }
+  .solutions-header .section-label::after { display: none; }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .solution-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+
+  .solution-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+  }
+
+  .solution-card:hover .solution-bg { transform: scale(1.08); }
+
+  .bio-bg {
+    background: linear-gradient(180deg, #0d2a0d 0%, #1a4d1a 50%, #0a1a0a 100%);
+  }
+
+  .comarca-bg {
+    background: linear-gradient(180deg, #1a2d0a 0%, #3d5a1a 50%, #1a2d0a 100%);
+  }
+
+  .wild-bg {
+    background: linear-gradient(180deg, #2a1a0a 0%, #5a3d1a 50%, #2a1a0a 100%);
+  }
+
+  .solution-accent {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    transition: opacity 0.4s;
+  }
+
+  .solution-card:hover .solution-accent { opacity: 0.3; }
+
+  .bio-accent { background: radial-gradient(circle at 50% 30%, #4a7c3f, transparent 70%); }
+  .comarca-accent { background: radial-gradient(circle at 50% 30%, #c8a84b, transparent 70%); }
+  .wild-accent { background: radial-gradient(circle at 50% 30%, #a8956b, transparent 70%); }
+
+  .solution-icon {
+    position: absolute;
+    top: 2.5rem;
+    left: 2rem;
+    font-size: 3rem;
+    opacity: 0.8;
+  }
+
+  .solution-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(0deg, rgba(8,12,16,0.95) 0%, transparent 100%);
+    transform: translateY(40%);
+    transition: transform 0.4s ease;
+  }
+
+  .solution-card:hover .solution-content { transform: translateY(0); }
+
+  .solution-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--ember);
+    margin-bottom: 0.5rem;
+  }
+
+  .solution-name {
+    font-family: var(--font-flag);
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+    color: var(--salt-white);
+    margin-bottom: 1rem;
+  }
+
+  .solution-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--bone);
+    opacity: 0;
+    transition: opacity 0.4s 0.1s;
+  }
+
+  .solution-card:hover .solution-desc { opacity: 1; }
+
+  .solution-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--brine-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.4s 0.2s;
+  }
+
+  .solution-card:hover .solution-link { opacity: 1; }
+  .solution-link::after { content: ' →'; }
+
+  /* ======================== ARR BANNER ======================== */
+  .arr-section {
+    background: var(--flag-red);
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .arr-section::before {
+    content: 'ARR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-flag);
+    font-size: 30vw;
+    color: rgba(0,0,0,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .arr-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+  }
+
+  .arr-headline {
+    font-family: var(--font-flag);
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: white;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .arr-pillars {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .arr-pillar {
+    text-align: center;
+  }
+
+  .arr-pillar-letter {
+    font-family: var(--font-flag);
+    font-size: 4rem;
+    color: white;
+    line-height: 1;
+    display: block;
+  }
+
+  .arr-pillar-word {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.7);
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  /* ======================== STATS ======================== */
+  .stats-section {
+    background: var(--sea-slate);
+    padding: 5rem 3rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-right: 1px solid rgba(200,168,75,0.15);
+    position: relative;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: var(--font-flag);
+    font-size: 4rem;
+    color: var(--brine-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--bone);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-sub {
+    font-size: 0.85rem;
+    color: var(--bone);
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  /* ======================== VIDEO SECTION ======================== */
+  .video-section {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .video-header .section-title { color: var(--salt-white); margin-bottom: 0; }
+
+  .youtube-subscribe {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #FF0000;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    transition: all 0.25s;
+  }
+
+  .youtube-subscribe:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .video-featured {
+    aspect-ratio: 16/9;
+    background: rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .video-featured iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--sea-slate), var(--horizon));
+    border: 1px solid rgba(200,168,75,0.2);
+  }
+
+  .play-btn {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--ember);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: var(--ember);
+  }
+
+  .play-btn:hover {
+    background: var(--ember);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .video-thumb {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,168,75,0.1);
+    cursor: pointer;
+    transition: all 0.25s;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .video-thumb:hover {
+    border-color: var(--ember);
+    background: rgba(212,84,26,0.05);
+  }
+
+  .video-thumb-img {
+    width: 80px;
+    height: 50px;
+    background: var(--horizon);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .video-thumb-info h4 {
+    font-family: var(--font-flag);
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    color: var(--salt-white);
+    margin-bottom: 0.25rem;
+  }
+
+  .video-thumb-info span {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--ember);
+  }
+
+  /* ======================== MAP SECTION ======================== */
+  .route-section {
+    background: var(--ocean-black);
+    padding: 5rem 3rem;
+  }
+
+  .route-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .route-copy .section-title { color: var(--salt-white); }
+  .route-copy p {
+    color: var(--bone);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .route-map {
+    height: 400px;
+    background: var(--deep-navy);
+    border: 1px solid rgba(200,168,75,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* SVG ocean route visualization */
+  .route-map svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+  }
+
+  /* ======================== NEWSLETTER ======================== */
+  .newsletter-section {
+    background: linear-gradient(135deg, var(--deep-navy) 0%, var(--sea-slate) 100%);
+    padding: 6rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(200,168,75,0.15);
+    border-bottom: 1px solid rgba(200,168,75,0.15);
+  }
+
+  .newsletter-section .section-label { justify-content: center; }
+  .newsletter-section .section-label::after { display: none; }
+
+  .newsletter-section .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--salt-white);
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-section p {
+    color: var(--bone);
+    font-style: italic;
+    font-size: 1.15rem;
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    gap: 0;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,168,75,0.3);
+    border-right: none;
+    color: var(--salt-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .newsletter-form input::placeholder { color: var(--bone); opacity: 0.5; }
+  .newsletter-form input:focus { border-color: var(--ember); }
+
+  .newsletter-form button {
+    padding: 1rem 2rem;
+    background: var(--ember);
+    border: 1px solid var(--ember);
+    color: white;
+    font-family: var(--font-flag);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.25s;
+    white-space: nowrap;
+  }
+
+  .newsletter-form button:hover { background: var(--flag-red); }
+
+  .newsletter-platforms {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .platform-link {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--brine-gold);
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(200,168,75,0.3);
+    transition: all 0.25s;
+  }
+
+  .platform-link:hover {
+    border-color: var(--brine-gold);
+    background: rgba(200,168,75,0.1);
+  }
+
+  /* ======================== FOOTER ======================== */
+  footer {
+    background: #040609;
+    padding: 4rem 3rem 2rem;
+    border-top: 1px solid rgba(200,168,75,0.1);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .footer-brand .nav-logo {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.9rem;
+    color: var(--bone);
+    opacity: 0.6;
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-flag);
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: var(--brine-gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--bone);
+    opacity: 0.6;
+    text-decoration: none;
+    margin-bottom: 0.6rem;
+    transition: all 0.2s;
+  }
+
+  .footer-col a:hover { opacity: 1; color: var(--ember); padding-left: 6px; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: gap;
+    gap: 1rem;
+  }
+
+  .footer-bottom p {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--bone);
+    opacity: 0.4;
+  }
+
+  .footer-flag {
+    font-family: var(--font-flag);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--ember);
+    opacity: 0.7;
+  }
+
+  /* ======================== LANGUAGE SWITCHER ======================== */
+  /* Bilingual content toggling */
+  [data-lang="es"] { display: none; }
+  body.es [data-lang="en"] { display: none; }
+  body.es [data-lang="es"] { display: block; }
+
+  /* For flex items */
+  .hero-ctas[data-lang="es"],
+  .arr-pillars[data-lang="es"],
+  .nav-links[data-lang="es"],
+  .newsletter-platforms[data-lang="es"],
+  .footer-bottom[data-lang="es"],
+  .stats-grid[data-lang="es"] {
+    display: none;
+  }
+
+  body.es .hero-ctas[data-lang="en"],
+  body.es .arr-pillars[data-lang="en"],
+  body.es .nav-links[data-lang="en"],
+  body.es .newsletter-platforms[data-lang="en"],
+  body.es .footer-bottom[data-lang="en"],
+  body.es .stats-grid[data-lang="en"] {
+    display: none;
+  }
+
+  body.es .hero-ctas[data-lang="es"],
+  body.es .arr-pillars[data-lang="es"],
+  body.es .nav-links[data-lang="es"],
+  body.es .newsletter-platforms[data-lang="es"],
+  body.es .footer-bottom[data-lang="es"],
+  body.es .stats-grid[data-lang="es"] {
+    display: flex;
+  }
+
+  /* ======================== ANIMATIONS ======================== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ======================== RESPONSIVE ======================== */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .manifesto-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .solutions-grid { grid-template-columns: 1fr; }
+    .solution-card { aspect-ratio: auto; min-height: 350px; }
+    .solution-content { transform: translateY(0); }
+    .solution-desc { opacity: 1; }
+    .solution-link { opacity: 1; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-item { border-bottom: 1px solid rgba(200,168,75,0.15); }
+    .video-grid { grid-template-columns: 1fr; }
+    .route-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form input { border-right: 1px solid rgba(200,168,75,0.3); }
+  }
+</style>
+</head>
+<body id="body">
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <a href="/" class="nav-logo">PIRATE<span>⚑</span>REPUBLIC</a>
+
+  <ul class="nav-links" data-lang="en">
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#solutions">The Arsenal</a></li>
+    <li><a href="#voyage">The Voyage</a></li>
+    <li><a href="#community">Join the Crew</a></li>
+    <li><a href="#" class="btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem;">Act Now</a></li>
+  </ul>
+
+  <ul class="nav-links" data-lang="es">
+    <li><a href="#manifesto">Manifiesto</a></li>
+    <li><a href="#solutions">El Arsenal</a></li>
+    <li><a href="#voyage">La Travesía</a></li>
+    <li><a href="#community">Únete</a></li>
+    <li><a href="#" class="btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem;">Actúa Ya</a></li>
+  </ul>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-ocean"></div>
+  <div class="wave-lines">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+      <path d="M0,100 C240,160 480,40 720,100 C960,160 1200,40 1440,100 L1440,200 L0,200 Z" fill="rgba(13,27,42,0.6)"/>
+      <path d="M0,120 C360,80 720,160 1080,120 C1260,100 1380,140 1440,120 L1440,200 L0,200 Z" fill="rgba(8,12,16,0.5)"/>
+    </svg>
+  </div>
+
+  <!-- ENGLISH HERO -->
+  <div class="hero-content" data-lang="en">
+    <div class="hero-eyebrow">Ocean Movement · Est. at Sea · ARR Protocol Active</div>
+    <h1 class="hero-headline">
+      SAIL.<br>
+      <span class="accent">EXPOSE.</span><br>
+      <span class="gold">REBUILD.</span>
+    </h1>
+    <div class="hero-sub">The Agroindustrial Empire Is Poisoning Our Oceans.</div>
+    <p class="hero-manifesto">
+      GMO monocultures. Glyphosate runoff. Chemical dead zones. 
+      They call it progress. We call it plunder. 
+      We are the Pirate Republic — and we sail to build regenerative systems 
+      that restore what the empire has stolen from every ocean, every soil, every body.
+    </p>
+    <div class="hero-ctas" data-lang="en">
+      <a href="#manifesto" class="btn-primary">Read the Manifesto</a>
+      <a href="#solutions" class="btn-secondary">See the Arsenal</a>
+    </div>
+  </div>
+
+  <!-- SPANISH HERO -->
+  <div class="hero-content" data-lang="es" style="display:none;">
+    <div class="hero-eyebrow">Movimiento Oceánico · En Alta Mar · Protocolo ARR Activo</div>
+    <h1 class="hero-headline">
+      NAVEGA.<br>
+      <span class="accent">EXPÓN.</span><br>
+      <span class="gold">RECONSTRUYE.</span>
+    </h1>
+    <div class="hero-sub">El Imperio Agroindustrial Envenena Nuestros Océanos.</div>
+    <p class="hero-manifesto">
+      Monocultivos transgénicos. Glifosato en los ríos. Zonas muertas en los mares. 
+      Ellos lo llaman progreso. Nosotros lo llamamos saqueo.
+      Somos la República Pirata — navegamos para construir sistemas regenerativos 
+      que devuelvan lo que el imperio le robó a cada océano, cada suelo, cada cuerpo.
+    </p>
+    <div class="hero-ctas" data-lang="es">
+      <a href="#manifesto" class="btn-primary">Leer el Manifiesto</a>
+      <a href="#solutions" class="btn-secondary">Ver el Arsenal</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-line"></span>
+    <span data-lang="en">SCROLL TO SAIL</span>
+    <span data-lang="es" style="display:none;">DESPLÁZATE</span>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span>⚑ ACT · REDUCE · REUSE · RECYCLE</span>
+    <span class="ticker-sep">///</span>
+    <span>BSFL PROTEIN REPLACING SOY MONOCULTURES</span>
+    <span class="ticker-sep">///</span>
+    <span>LA COMARCA: REGENERATIVE FARM SYSTEM ONLINE</span>
+    <span class="ticker-sep">///</span>
+    <span>WILD & TRUE: ZERO PLASTIC · ZERO PARABENS · ZERO COMPROMISE</span>
+    <span class="ticker-sep">///</span>
+    <span>GLYPHOSATE IN 80% OF TESTED WATER SYSTEMS · WE ARE SAILING BACK</span>
+    <span class="ticker-sep">///</span>
+    <span>⚑ ACT · REDUCE · REUSE · RECYCLE</span>
+    <span class="ticker-sep">///</span>
+    <span>BSFL PROTEIN REPLACING SOY MONOCULTURES</span>
+    <span class="ticker-sep">///</span>
+    <span>LA COMARCA: REGENERATIVE FARM SYSTEM ONLINE</span>
+    <span class="ticker-sep">///</span>
+    <span>WILD & TRUE: ZERO PLASTIC · ZERO PARABENS · ZERO COMPROMISE</span>
+    <span class="ticker-sep">///</span>
+    <span>GLYPHOSATE IN 80% OF TESTED WATER SYSTEMS · WE ARE SAILING BACK</span>
+    <span class="ticker-sep">///</span>
+  </div>
+</div>
+
+<!-- ===== MANIFESTO ===== -->
+<section class="manifesto-section" id="manifesto">
+  <!-- ENGLISH -->
+  <div class="manifesto-grid" data-lang="en">
+    <div class="manifesto-text reveal">
+      <div class="section-label">01 — Manifesto</div>
+      <h2 class="section-title">The Ocean Remembers Everything They Dump Into It.</h2>
+      <div class="manifesto-body">
+        <p>We are not environmentalists. We are not NGOs. We are not corporations wearing green paint.</p>
+        <p>We are <strong>ocean defenders who act</strong>. We sail the routes agroindustry poisoned. We document what they deny. We build what they claim is impossible.</p>
+        <p>The model is clear: industrial agriculture runs on GMO monocultures, synthetic fertilizers, glyphosate, and pesticides. The runoff flows into rivers. Rivers flow into oceans. Oceans die. Communities starve. Corporations profit.</p>
+        <p><strong>We are breaking the loop.</strong> Not with petitions. With proof-of-work. With regenerative systems that outperform the extractive model — economically, ecologically, and socially.</p>
+        <p>Every bar of soap, every kilogram of BSFL protein, every egg laid on La Comarca is a declaration of independence from the industrial food machine.</p>
+      </div>
+    </div>
+    <div class="manifesto-accusations reveal">
+      <div class="accusation-card">
+        <h3>The Glyphosate Pipeline</h3>
+        <p>Herbicide runoff from GMO fields enters waterways and reaches ocean dead zones. Linked to endocrine disruption, gut microbiome damage, and aquatic ecosystem collapse.</p>
+      </div>
+      <div class="accusation-card">
+        <h3>Soy & Corn Monoculture Domination</h3>
+        <p>Four corporations control the global seed supply. Monocultures erase biodiversity, deplete soil, and lock developing nations into chemical dependency cycles.</p>
+      </div>
+      <div class="accusation-card">
+        <h3>The Plastic-Chemical Complex</h3>
+        <p>Synthetic fragrances, petrochemical surfactants, and microplastics from personal care products enter water systems daily. The ocean didn't ask for any of it.</p>
+      </div>
+      <div class="accusation-card">
+        <h3>The Nutrient Dead Zone Crisis</h3>
+        <p>Chemical fertilizer runoff creates hypoxic zones — over 400 globally. The Mississippi River alone dumps enough nitrogen to kill marine ecosystems across the Gulf of Mexico.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPANISH -->
+  <div class="manifesto-grid" data-lang="es" style="display:none;">
+    <div class="manifesto-text reveal">
+      <div class="section-label">01 — Manifiesto</div>
+      <h2 class="section-title">El Océano Recuerda Todo Lo Que Le Vierten.</h2>
+      <div class="manifesto-body">
+        <p>No somos ambientalistas de escritorio. No somos ONGs. No somos corporaciones con pintura verde.</p>
+        <p>Somos <strong>defensores del océano que actúan</strong>. Navegamos las rutas que la agroindustria envenenó. Documentamos lo que ellos niegan. Construimos lo que ellos dicen que es imposible.</p>
+        <p>El modelo es brutal: la agricultura industrial funciona con transgénicos, fertilizantes sintéticos, glifosato y agrotóxicos. El escurrimiento llega a los ríos. Los ríos desembocan en el mar. El mar muere. Las comunidades pasan hambre. Las corporaciones lucran.</p>
+        <p><strong>Estamos rompiendo ese ciclo.</strong> No con peticiones. Con prueba de trabajo. Con sistemas regenerativos que superan al modelo extractivo — económica, ecológica y socialmente.</p>
+        <p>Cada pastilla de jabón, cada kilo de proteína BSFL, cada huevo puesto en La Comarca es una declaración de soberanía alimentaria frente a la máquina industrial.</p>
+      </div>
+    </div>
+    <div class="manifesto-accusations reveal">
+      <div class="accusation-card">
+        <h3>El Pipeline del Glifosato</h3>
+        <p>El escurrimiento de herbicidas desde campos transgénicos contamina cuencas y llega a zonas muertas oceánicas. Vinculado a disrupción endocrina, daño al microbioma intestinal y colapso de ecosistemas acuáticos.</p>
+      </div>
+      <div class="accusation-card">
+        <h3>La Dictadura del Monocultivo</h3>
+        <p>Cuatro corporaciones controlan el suministro mundial de semillas. Los monocultivos borran la biodiversidad, agotan el suelo y atan a los países en desarrollo a ciclos de dependencia química.</p>
+      </div>
+      <div class="accusation-card">
+        <h3>El Complejo Plástico-Químico</h3>
+        <p>Fragancias sintéticas, surfactantes petroquímicos y microplásticos de productos de cuidado personal entran a los sistemas hídricos cada día. El océano no los pidió.</p>
+      </div>
+      <div class="accusation-card">
+        <h3>La Crisis de las Zonas Muertas</h3>
+        <p>El escurrimiento de fertilizantes crea más de 400 zonas hipóxicas a nivel global. Solo el río Mississippi descarga suficiente nitrógeno como para matar ecosistemas marinos en todo el Golfo de México.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARR BANNER ===== -->
+<div class="arr-section">
+  <!-- English -->
+  <div data-lang="en">
+    <div class="arr-label">The Protocol That Guides the Crew</div>
+    <div class="arr-headline">THE ARR PROTOCOL</div>
+    <div class="arr-pillars" data-lang="en">
+      <div class="arr-pillar">
+        <span class="arr-pillar-letter">A</span>
+        <span class="arr-pillar-word">ACT</span>
+      </div>
+      <div class="arr-pillar">
+        <span class="arr-pillar-letter">R</span>
+        <span class="arr-pillar-word">REDUCE</span>
+      </div>
+      <div class="arr-pillar">
+        <span class="arr-pillar-letter">R</span>
+        <span class="arr-pillar-word">REUSE · RECYCLE</span>
+      </div>
+    </div>
+  </div>
+  <!-- Spanish -->
+  <div data-lang="es" style="display:none;">
+    <div class="arr-label">El Protocolo que Guía a la Tripulación</div>
+    <div class="arr-headline">EL PROTOCOLO ARR</div>
+    <div class="arr-pillars" data-lang="es">
+      <div class="arr-pillar">
+        <span class="arr-pillar-letter">A</span>
+        <span class="arr-pillar-word">ACTÚA</span>
+      </div>
+      <div class="arr-pillar">
+        <span class="arr-pillar-letter">R</span>
+        <span class="arr-pillar-word">REDUCE</span>
+      </div>
+      <div class="arr-pillar">
+        <span class="arr-pillar-letter">R</span>
+        <span class="arr-pillar-word">REUTILIZA · RECICLA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section">
+  <!-- English -->
+  <div class="stats-grid" data-lang="en">
+    <div class="stat-item reveal">
+      <span class="stat-number">400+</span>
+      <span class="stat-label">Ocean Dead Zones</span>
+      <span class="stat-sub">Created by agrochemical runoff globally</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number">80%</span>
+      <span class="stat-label">Water Systems Contaminated</span>
+      <span class="stat-sub">With glyphosate residues in tested samples</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Corporations Control Seeds</span>
+      <span class="stat-sub">Global seed supply held by BASF, Bayer, Corteva, ChemChina</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">Regenerative Capacity</span>
+      <span class="stat-sub">If we stop extracting and start restoring</span>
+    </div>
+  </div>
+  <!-- Spanish -->
+  <div class="stats-grid" data-lang="es" style="display:none;">
+    <div class="stat-item reveal">
+      <span class="stat-number">400+</span>
+      <span class="stat-label">Zonas Muertas en el Océano</span>
+      <span class="stat-sub">Creadas por escurrimientos agroquímicos a nivel global</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number">80%</span>
+      <span class="stat-label">Sistemas Hídricos Contaminados</span>
+      <span class="stat-sub">Con residuos de glifosato en muestras analizadas</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Corporaciones Controlan las Semillas</span>
+      <span class="stat-sub">El suministro global en manos de BASF, Bayer, Corteva, ChemChina</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">Capacidad Regenerativa</span>
+      <span class="stat-sub">Si dejamos de extraer y empezamos a restaurar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTIONS ===== -->
+<section class="solutions-section" id="solutions">
+  <div class="solutions-header reveal">
+    <!-- English -->
+    <div data-lang="en">
+      <div class="section-label">02 — The Arsenal</div>
+      <h2 class="section-title">We Don't Just Expose. We Build.</h2>
+      <p style="color:var(--bone);font-style:italic;font-size:1.1rem;">Three regenerative systems. One integrated mission. Zero compromise.</p>
+    </div>
+    <!-- Spanish -->
+    <div data-lang="es" style="display:none;">
+      <div class="section-label">02 — El Arsenal</div>
+      <h2 class="section-title">No Solo Denunciamos. Construimos.</h2>
+      <p style="color:var(--bone);font-style:italic;font-size:1.1rem;">Tres sistemas regenerativos. Una misión integrada. Cero concesiones.</p>
+    </div>
+  </div>
+
+  <div class="solutions-grid">
+    <!-- BIOBALANCE -->
+    <div class="solution-card">
+      <div class="solution-bg bio-bg"></div>
+      <div class="solution-accent bio-accent"></div>
+      <div class="solution-icon">🪲</div>
+      <div class="solution-content">
+        <div class="solution-tag">Protein Systems · Soil Restoration</div>
+        <div class="solution-name">BioBalance</div>
+        <p class="solution-desc" data-lang="en">Black Soldier Fly Larvae protein replacing soy and corn-based animal feed. Regenerative input loops. Food sovereignty for developing nations. The insect revolution is here.</p>
+        <p class="solution-desc" data-lang="es" style="display:none;">Proteína de Larva de Mosca Soldado Negro reemplazando la soya y el maíz en la alimentación animal. Circuitos de insumos regenerativos. Soberanía alimentaria para naciones en desarrollo.</p>
+        <a href="/biobalance" class="solution-link" data-lang="en">Explore BioBalance</a>
+        <a href="/biobalance" class="solution-link" data-lang="es" style="display:none;">Explorar BioBalance</a>
+      </div>
+    </div>
+
+    <!-- LA COMARCA -->
+    <div class="solution-card">
+      <div class="solution-bg comarca-bg"></div>
+      <div class="solution-accent comarca-accent"></div>
+      <div class="solution-icon">🌿</div>
+      <div class="solution-content">
+        <div class="solution-tag">Regenerative Farm · Integrated System</div>
+        <div class="solution-name">La Comarca</div>
+        <p class="solution-desc" data-lang="en">Poultry fed BSFL protein. Tilapia raised sustainably. Goats, pigs, and bees integrated into the loop. Organic fertilizer closes the cycle. Herbs and vegetables grown regeneratively.</p>
+        <p class="solution-desc" data-lang="es" style="display:none;">Aves alimentadas con proteína BSFL. Tilapia criada de forma sostenible. Cabras, cerdos y abejas integrados en el ciclo. El fertilizante orgánico cierra el loop. Hierbas y verduras cultivadas regenerativamente.</p>
+        <a href="/la-comarca" class="solution-link" data-lang="en">Visit La Comarca</a>
+        <a href="/la-comarca" class="solution-link" data-lang="es" style="display:none;">Visitar La Comarca</a>
+      </div>
+    </div>
+
+    <!-- WILD & TRUE -->
+    <div class="solution-card">
+      <div class="solution-bg wild-bg"></div>
+      <div class="solution-accent wild-accent"></div>
+      <div class="solution-icon">🧼</div>
+      <div class="solution-content">
+        <div class="solution-tag">Natural Care · Zero Plastic</div>
+        <div class="solution-name">Wild & True</div>
+        <p class="solution-desc" data-lang="en">Solid-bar personal care made with milk, honey, and herbs from La Comarca. Free from parabens, phthalates, triclosan, synthetic fragrances, petrochemicals. Zero plastic. Zero microplastics entering the ocean.</p>
+        <p class="solution-desc" data-lang="es" style="display:none;">Cuidado personal en barra sólida elaborado con leche, miel y hierbas de La Comarca. Libre de parabenos, ftalatos, triclosán, fragancias sintéticas y petroquímicos. Cero plástico. Cero microplásticos en el océano.</p>
+        <a href="/wild-and-true" class="solution-link" data-lang="en">Shop Wild & True</a>
+        <a href="/wild-and-true" class="solution-link" data-lang="es" style="display:none;">Ver Wild & True</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO SECTION ===== -->
+<section class="video-section" id="voyage">
+  <div class="video-inner">
+    <div class="video-header reveal">
+      <div>
+        <!-- English -->
+        <div data-lang="en">
+          <div class="section-label">03 — The Dispatch</div>
+          <h2 class="section-title">From the Bridge</h2>
+        </div>
+        <!-- Spanish -->
+        <div data-lang="es" style="display:none;">
+          <div class="section-label">03 — El Despacho</div>
+          <h2 class="section-title">Desde el Puente de Mando</h2>
+        </div>
+      </div>
+      <a href="https://www.youtube.com/@PirateRepublic" target="_blank" class="youtube-subscribe">
+        ▶ SUBSCRIBE ON YOUTUBE
+      </a>
+    </div>
+
+    <div class="video-grid reveal">
+      <div class="video-featured">
+        <div class="video-placeholder">
+          <div class="play-btn">▶</div>
+          <p style="font-family:var(--font-flag);font-size:1.3rem;letter-spacing:0.05em;color:var(--salt-white);" data-lang="en">LATEST DISPATCH</p>
+          <p style="font-family:var(--font-flag);font-size:1.3rem;letter-spacing:0.05em;color:var(--salt-white);" data-lang="es">ÚLTIMO DESPACHO</p>
+          <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:var(--ember);margin-top:0.5rem;">YOUTUBE FEED AUTO-SYNCS HERE</p>
+        </div>
+      </div>
+
+      <div class="video-list">
+        <a href="#" class="video-thumb">
+          <div class="video-thumb-img">🌊</div>
+          <div class="video-thumb-info">
+            <h4 data-lang="en">How Glyphosate Reaches the Ocean</h4>
+            <h4 data-lang="es" style="display:none;">Cómo el Glifosato Llega al Océano</h4>
+            <span>Documentary · 18 min</span>
+          </div>
+        </a>
+        <a href="#" class="video-thumb">
+          <div class="video-thumb-img">🪲</div>
+          <div class="video-thumb-info">
+            <h4 data-lang="en">BSFL: The Insect That Breaks the Feed Chain</h4>
+            <h4 data-lang="es" style="display:none;">BSFL: El Insecto Que Rompe la Cadena Alimentaria</h4>
+            <span>BioBalance Report · 12 min</span>
+          </div>
+        </a>
+        <a href="#" class="video-thumb">
+          <div class="video-thumb-img">🌿</div>
+          <div class="video-thumb-info">
+            <h4 data-lang="en">La Comarca: One Year In</h4>
+            <h4 data-lang="es" style="display:none;">La Comarca: Un Año Adentro</h4>
+            <span>Farm Dispatch · 24 min</span>
+          </div>
+        </a>
+        <a href="#" class="video-thumb">
+          <div class="video-thumb-img">🧼</div>
+          <div class="video-thumb-info">
+            <h4 data-lang="en">What's Actually In Your Soap</h4>
+            <h4 data-lang="es" style="display:none;">Qué Hay Realmente en Tu Jabón</h4>
+            <span>Wild & True · 9 min</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SAILING ROUTE ===== -->
+<section class="route-section">
+  <div class="route-inner">
+    <div class="route-copy reveal">
+      <!-- English -->
+      <div data-lang="en">
+        <div class="section-label">04 — The Route</div>
+        <h2 class="section-title">Track the Voyage.</h2>
+        <p>We don't sit still. The ship is sailing — documenting ocean defenders, coastal communities, and regenerative projects across the globe.</p>
+        <p>Follow our position. Watch where we anchor. See who we're amplifying.</p>
+        <a href="/route" class="btn-secondary">View Live Route</a>
+      </div>
+      <!-- Spanish -->
+      <div data-lang="es" style="display:none;">
+        <div class="section-label">04 — La Ruta</div>
+        <h2 class="section-title">Sigue la Travesía.</h2>
+        <p>No nos quedamos quietos. El barco navega — documentando defensores del océano, comunidades costeras y proyectos regenerativos en todo el mundo.</p>
+        <p>Sigue nuestra posición. Observa dónde fondeamos. Mira a quién estamos amplificando.</p>
+        <a href="/ruta" class="btn-secondary">Ver Ruta en Vivo</a>
+      </div>
+    </div>
+
+    <div class="route-map reveal">
+      <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ocean background -->
+        <rect width="600" height="400" fill="#0d1b2a"/>
+        <!-- Grid lines -->
+        <g stroke="rgba(200,168,75,0.08)" stroke-width="0.5">
+          <line x1="0" y1="80" x2="600" y2="80"/>
+          <line x1="0" y1="160" x2="600" y2="160"/>
+          <line x1="0" y1="240" x2="600" y2="240"/>
+          <line x1="0" y1="320" x2="600" y2="320"/>
+          <line x1="120" y1="0" x2="120" y2="400"/>
+          <line x1="240" y1="0" x2="240" y2="400"/>
+          <line x1="360" y1="0" x2="360" y2="400"/>
+          <line x1="480" y1="0" x2="480" y2="400"/>
+        </g>
+        <!-- Sailing route dashed line -->
+        <path d="M60,200 C120,180 180,220 260,190 C340,160 380,200 460,170 C510,155 540,165 560,160"
+              stroke="rgba(200,168,75,0.7)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+        <!-- Route dots / anchor points -->
+        <circle cx="60" cy="200" r="5" fill="var(--ember)" opacity="0.9"/>
+        <circle cx="260" cy="190" r="5" fill="var(--brine-gold)" opacity="0.9"/>
+        <circle cx="460" cy="170" r="5" fill="var(--brine-gold)" opacity="0.9"/>
+        <!-- Current position -->
+        <circle cx="360" cy="178" r="8" fill="none" stroke="var(--ember)" stroke-width="2">
+          <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="360" cy="178" r="4" fill="var(--ember)"/>
+        <!-- Ship icon -->
+        <text x="348" y="165" font-size="14" fill="white" opacity="0.9">⛵</text>
+        <!-- Labels -->
+        <text x="40" y="220" font-size="8" fill="rgba(200,168,75,0.7)" font-family="monospace">ORIGIN</text>
+        <text x="240" y="210" font-size="8" fill="rgba(200,168,75,0.7)" font-family="monospace">LA COMARCA</text>
+        <text x="340" y="198" font-size="8" fill="var(--ember)" font-family="monospace">● LIVE</text>
+        <text x="440" y="188" font-size="8" fill="rgba(200,168,75,0.7)" font-family="monospace">NEXT PORT</text>
+        <!-- Frame -->
+        <rect x="1" y="1" width="598" height="398" fill="none" stroke="rgba(200,168,75,0.2)" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER / COMMUNITY ===== -->
+<section class="newsletter-section" id="community">
+  <!-- English -->
+  <div data-lang="en">
+    <div class="section-label">05 — Join the Crew</div>
+    <h2 class="section-title">Ship's Log. No Spam. Ever.</h2>
+    <p>Weekly dispatches from the ocean. Updates from La Comarca. Regenerative intelligence you can actually use.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com">
+      <button type="submit">BOARD THE SHIP</button>
+    </div>
+    <div class="newsletter-platforms" data-lang="en">
+      <a href="#" class="platform-link">⚡ Discord</a>
+      <a href="#" class="platform-link">📡 Telegram</a>
+      <a href="#" class="platform-link">▶ YouTube</a>
+      <a href="#" class="platform-link">📸 Instagram</a>
+      <a href="#" class="platform-link">🐦 X / Twitter</a>
+    </div>
+  </div>
+
+  <!-- Spanish -->
+  <div data-lang="es" style="display:none;">
+    <div class="section-label">05 — Únete a la Tripulación</div>
+    <h2 class="section-title">El Diario de Abordo. Sin Spam. Jamás.</h2>
+    <p>Despachos semanales desde el océano. Actualizaciones de La Comarca. Inteligencia regenerativa que puedes usar de verdad.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="tu@correo.com">
+      <button type="submit">SUBIR AL BARCO</button>
+    </div>
+    <div class="newsletter-platforms" data-lang="es">
+      <a href="#" class="platform-link">⚡ Discord</a>
+      <a href="#" class="platform-link">📡 Telegram</a>
+      <a href="#" class="platform-link">▶ YouTube</a>
+      <a href="#" class="platform-link">📸 Instagram</a>
+      <a href="#" class="platform-link">🐦 X / Twitter</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">PIRATE<span>⚑</span>REPUBLIC</a>
+      <p data-lang="en">A rebel ocean movement exposing agroindustrial extraction and building regenerative systems — one voyage, one farm, one bar of soap at a time.</p>
+      <p data-lang="es" style="display:none;">Un movimiento oceánico rebelde que expone la extracción agroindustrial y construye sistemas regenerativos — un viaje, una granja, una pastilla de jabón a la vez.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-lang="en">Movement</h4>
+      <h4 data-lang="es" style="display:none;">Movimiento</h4>
+      <a href="#manifesto" data-lang="en">Manifesto</a>
+      <a href="#manifesto" data-lang="es" style="display:none;">Manifiesto</a>
+      <a href="/advocates" data-lang="en">Ocean Advocates</a>
+      <a href="/advocates" data-lang="es" style="display:none;">Defensores del Océano</a>
+      <a href="/ambassador" data-lang="en">Ambassador Program</a>
+      <a href="/embajadores" data-lang="es" style="display:none;">Programa Embajadores</a>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-lang="en">The Arsenal</h4>
+      <h4 data-lang="es" style="display:none;">El Arsenal</h4>
+      <a href="/biobalance">BioBalance</a>
+      <a href="/la-comarca">La Comarca</a>
+      <a href="/wild-and-true">Wild & True</a>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-lang="en">Crew</h4>
+      <h4 data-lang="es" style="display:none;">Tripulación</h4>
+      <a href="/about" data-lang="en">About</a>
+      <a href="/sobre-nosotros" data-lang="es" style="display:none;">Sobre Nosotros</a>
+      <a href="/contact" data-lang="en">Contact</a>
+      <a href="/contacto" data-lang="es" style="display:none;">Contacto</a>
+      <a href="/press" data-lang="en">Press</a>
+      <a href="/prensa" data-lang="es" style="display:none;">Prensa</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom" data-lang="en">
+    <p>© 2025 Pirate Republic · Sailing against the current · ARR Protocol Active</p>
+    <span class="footer-flag">SAIL. EXPOSE. REBUILD. ⚑</span>
+  </div>
+  <div class="footer-bottom" data-lang="es" style="display:none;">
+    <p>© 2025 República Pirata · Navegando contra la corriente · Protocolo ARR Activo</p>
+    <span class="footer-flag">NAVEGA. EXPÓN. RECONSTRUYE. ⚑</span>
+  </div>
+</footer>
+
+<script>
+  /* ============ LANGUAGE SWITCHING ============ */
+  function setLang(lang) {
+    const body = document.getElementById('body');
+    
+    if (lang === 'es') {
+      body.classList.add('es');
+      document.documentElement.lang = 'es';
+      // Show all ES elements
+      document.querySelectorAll('[data-lang="es"]').forEach(el => {
+        const parent = el.parentElement;
+        const isFlexChild = parent && (
+          parent.classList.contains('hero-ctas') ||
+          parent.classList.contains('arr-pillars') ||
+          parent.classList.contains('newsletter-platforms')
+        );
+        el.style.display = isFlexChild ? 'flex' : 'block';
+      });
+      document.querySelectorAll('[data-lang="en"]').forEach(el => {
+        el.style.display = 'none';
+      });
+    } else {
+      body.classList.remove('es');
+      document.documentElement.lang = 'en';
+      document.querySelectorAll('[data-lang="en"]').forEach(el => {
+        const parent = el.parentElement;
+        const tag = el.tagName.toLowerCase();
+        if (el.classList.contains('hero-ctas') || 
+            el.classList.contains('arr-pillars') || 
+            el.classList.contains('newsletter-platforms') ||
+            el.classList.contains('stats-grid') ||
+            el.classList.contains('footer-bottom') ||
+            el.classList.contains('nav-links')) {
+          el.style.display = 'flex';
+        } else {
+          el.style.display = 'block';
+        }
+      });
+      document.querySelectorAll('[data-lang="es"]').forEach(el => {
+        el.style.display = 'none';
+      });
+    }
+    
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    localStorage.setItem('pr-lang', lang);
+  }
+
+  // Load saved language preference
+  const savedLang = localStorage.getItem('pr-lang') || 'en';
+  if (savedLang === 'es') setLang('es');
+
+  /* ============ SCROLL REVEAL ============ */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  /* ============ NAV SCROLL EFFECT ============ */
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.borderBottomColor = 'rgba(200,168,75,0.25)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(200,168,75,0.15)';
+    }
+  });
+
+  /* ============ NEWSLETTER FORM ============ */
+  document.querySelectorAll('.newsletter-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button');
+      const input = form.querySelector('input');
+      const isEs = document.getElementById('body').classList.contains('es');
+      btn.textContent = isEs ? '⚑ BIENVENIDO A BORDO' : '⚑ WELCOME ABOARD';
+      btn.style.background = 'var(--kelp-green)';
+      input.value = '';
+    });
+    form.querySelector('button').addEventListener('click', (e) => {
+      const formEl = e.target.closest('.newsletter-form');
+      formEl.dispatchEvent(new Event('submit'));
+    });
+  });
+</script>
+</body>
+</html>
